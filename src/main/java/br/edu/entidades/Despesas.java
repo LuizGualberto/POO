@@ -1,5 +1,6 @@
-/*
+/**
  * Tabela Despesas
+ * PauloFeitosa
  */
 package br.edu.entidades;
 
@@ -20,10 +21,7 @@ import javax.persistence.Transient;
 @Table(name="despesas")
 public class Despesas {
 
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
-
-       
+          
      @Id
      @GeneratedValue
      private Integer id;
@@ -49,9 +47,7 @@ public class Despesas {
      * @param id the id to set
      */
     public void setId(Integer id) {
-        Integer oldId = this.id;
         this.id = id;
-        changeSupport.firePropertyChange("id", oldId, id);
     }
 
     /**
@@ -65,9 +61,7 @@ public class Despesas {
      * @param descrição the descrição to set
      */
     public void setDescrição(String descrição) {
-        String oldDescrição = this.descrição;
         this.descrição = descrição;
-        changeSupport.firePropertyChange("descri\u00e7\u00e3o", oldDescrição, descrição);
     }
 
     /**
@@ -81,9 +75,7 @@ public class Despesas {
      * @param valor the valor to set
      */
     public void setValor(float valor) {
-        float oldValor = this.valor;
         this.valor = valor;
-        changeSupport.firePropertyChange("valor", oldValor, valor);
     }
 
     /**
@@ -97,21 +89,9 @@ public class Despesas {
      * @param data the data to set
      */
     public void setData(Date data) {
-        Date oldData = this.data;
         this.data = data;
-        changeSupport.firePropertyChange("data", oldData, data);
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
-    }
-
-   
-     
-     
+  
     
 }
